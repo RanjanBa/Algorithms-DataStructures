@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "sort.h": "c",
+        "bubble_sort.h": "c",
+        "insertion_sort.h": "c",
+        "merge_sort.h": "c",
+        "quick_sort.h": "c",
+        "stdio.h": "c",
+        "vector.h": "c",
+        "stdlib.h": "c"
+    }
+}

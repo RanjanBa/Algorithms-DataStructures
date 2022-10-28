@@ -15,7 +15,7 @@ void heapifyUp(int *arr, int n, int child_index)
     {
         int parent_index = (child_index - 1) / 2;
 
-        if (arr[child_index] < arr[parent_index])
+        if (arr[child_index] > arr[parent_index])
         {
             swap(&arr[child_index], &arr[parent_index]);
             child_index = parent_index;
@@ -38,16 +38,16 @@ void heapifyDown(int *arr, int n, int parent_index)
 
         if (right_child < n)
         {
-            if (arr[left_child] <= arr[right_child])
+            if (arr[left_child] >= arr[right_child])
             {
-                if (arr[parent_index] > arr[left_child])
+                if (arr[parent_index] < arr[left_child])
                 {
                     swap_index = left_child;
                 }
             }
             else
             {
-                if (arr[parent_index] > arr[right_child])
+                if (arr[parent_index] < arr[right_child])
                 {
                     swap_index = right_child;
                 }
@@ -55,7 +55,7 @@ void heapifyDown(int *arr, int n, int parent_index)
         }
         else if (left_child < n)
         {
-            if (arr[parent_index] > arr[left_child])
+            if (arr[parent_index] < arr[left_child])
             {
                 swap_index = left_child;
             }
@@ -99,10 +99,6 @@ void insert(int *arr, int n, int value)
     printf("\n");
 }
 
-void delete ()
-{
-}
-
 void buildHeap(int *arr, int n)
 {
     // if n is size of the array, there should be n / 2 non-leaf.
@@ -118,32 +114,4 @@ void buildHeap(int *arr, int n)
     }
 
     printf("\n");
-}
-
-int main(int argc, char const *argv[])
-{
-    int n;
-    // scanf("%d", &n);
-
-    int *arr = (int *)malloc(n * sizeof(int));
-
-    int a[] = {2, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17};
-
-    n = sizeof(a) / sizeof(int);
-
-    for (int i = 0; i < n; i++)
-    {
-        // scanf("%d", arr + i);
-        arr[i] = a[i];
-    }
-
-    buildHeap(arr, n);
-
-    int val;
-    printf("Enter value to insert into array : ");
-    scanf("%d", &val);
-
-    insert(arr, n, val);
-
-    return 0;
 }
