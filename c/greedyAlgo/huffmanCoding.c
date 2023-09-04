@@ -11,7 +11,6 @@ char *huffmanCoding(char *str)
 
     for (int i = 0; i < n; i++)
     {
-        count_diff_char
     }
 
     return result;
