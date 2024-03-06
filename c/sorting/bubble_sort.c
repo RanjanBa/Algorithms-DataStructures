@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 void swap(int *a, int *b)
 {
     int temp = *a;
@@ -19,12 +17,6 @@ void bubbleSort(int *arr, int n)
                 swap(&arr[j], &arr[j + 1]);
             }
         }
-
-        for (int j = 0; j < n; j++)
-        {
-            printf("%d ", arr[j]);
-        }
-        printf("\n");
     }
 }
 

@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 void swap(int *a, int *b)
 {
     int temp = *a;
@@ -28,11 +26,5 @@ void selectionSort(int *arr, int n)
         {
             swap(&arr[i], &arr[minIdx]);
         }
-
-        for (int i = 0; i < n; i++)
-        {
-            printf("%d ", arr[i]);
-        }
-        printf("\n");
     }
 }

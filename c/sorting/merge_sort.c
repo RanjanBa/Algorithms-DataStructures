@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 void merge(int *arr, int low, int high, int mid)
 {
     int i = low, j = mid + 1;

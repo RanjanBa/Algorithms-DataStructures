@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 void swap(int *a, int *b)
 {
     int temp = *a;
@@ -15,7 +12,7 @@ void heapifyUp(int *arr, int n, int child_index)
     {
         int parent_index = (child_index - 1) / 2;
 
-        if (arr[child_index] < arr[parent_index])
+        if (arr[child_index] > arr[parent_index])
         {
             swap(&arr[child_index], &arr[parent_index]);
             child_index = parent_index;
@@ -38,16 +35,16 @@ void heapifyDown(int *arr, int n, int parent_index)
 
         if (right_child < n)
         {
-            if (arr[left_child] <= arr[right_child])
+            if (arr[left_child] >= arr[right_child])
             {
-                if (arr[parent_index] > arr[left_child])
+                if (arr[parent_index] < arr[left_child])
                 {
                     swap_index = left_child;
                 }
             }
             else
             {
-                if (arr[parent_index] > arr[right_child])
+                if (arr[parent_index] < arr[right_child])
                 {
                     swap_index = right_child;
                 }
@@ -55,7 +52,7 @@ void heapifyDown(int *arr, int n, int parent_index)
         }
         else if (left_child < n)
         {
-            if (arr[parent_index] > arr[left_child])
+            if (arr[parent_index] < arr[left_child])
             {
                 swap_index = left_child;
             }
