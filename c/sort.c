@@ -1,48 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #include "./sorting/bubble_sort.h"
-// #include "./sorting/insertion_sort.h"
-#include "./sorting/selection_sort.h"
-// #include "./sorting/merge_sort.h"
-// #include "./sorting/quick_sort.h"
-
-void swap(int *a, int *b)
-{
-    int temp = *a;
-
-    *a = *b;
-    *b = temp;
-}
-
-void selectionSort(int *arr, int n)
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        int minIdx = -1;
-        int minVal = arr[i];
-
-        for (int j = i + 1; j < n; j++)
-        {
-            if (minVal > arr[j])
-            {
-                minIdx = j;
-                minVal = arr[j];
-            }
-        }
-
-        if (minIdx != -1)
-        {
-            swap(&arr[i], &arr[minIdx]);
-        }
-
-        for (int i = 0; i < n; i++)
-        {
-            printf("%d ", arr[i]);
-        }
-        printf("\n");
-    }
-}
+// #include "./sorting/bubble_sort.c"
+// #include "./sorting/insertion_sort.c"
+// #include "./sorting/merge_sort.c"
+// #include "./sorting/quick_sort.c"
+// #include "./sorting/selection_sort.c"
 
 int main()
 {
@@ -61,5 +24,23 @@ int main()
         arr[i] = a[i];
     }
 
-    selectionSort(arr, n);
+    printf("Before sorting:\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\n");
+
+    // selectionSort(arr, n);
+    // bubbleSort(arr, n);
+    // insertionSort(arr, n);
+    // mergeSort(arr, 0, n - 1);
+    quickSort(arr, 0, n - 1);
+
+    printf("After sorting:\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\n");
 }

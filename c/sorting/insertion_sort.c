@@ -12,11 +12,5 @@ void insertionSort(int *arr, int n)
         }
 
         arr[j + 1] = x;
-
-        for (int i = 0; i < n; i++)
-        {
-            printf("%d ", arr[i]);
-        }
-        printf("\n");
     }
 }

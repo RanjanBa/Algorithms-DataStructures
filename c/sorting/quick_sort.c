@@ -1,10 +1,4 @@
-void swap(int *a, int *b)
-{
-    int temp = *a;
-
-    *a = *b;
-    *b = temp;
-}
+#include "../sorting/utility.c"
 
 int partition(int* arr, int low, int high)
 {
@@ -12,7 +6,7 @@ int partition(int* arr, int low, int high)
 
     int j = low;
 
-    for (int i = low + 1; i < high; i++)
+    for (int i = low + 1; i <= high; i++)
     {
         if (arr[i] < x)
         {

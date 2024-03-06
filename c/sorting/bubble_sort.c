@@ -1,10 +1,4 @@
-void swap(int *a, int *b)
-{
-    int temp = *a;
-
-    *a = *b;
-    *b = temp;
-}
+#include "../sorting/utility.c"
 
 void bubbleSort(int *arr, int n)
 {

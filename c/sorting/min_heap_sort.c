@@ -1,10 +1,4 @@
-void swap(int *a, int *b)
-{
-    int temp = *a;
-
-    *a = *b;
-    *b = temp;
-}
+#include "../sorting/utility.c"
 
 void heapifyUp(int *arr, int n, int child_index)
 {
