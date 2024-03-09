@@ -1,6 +1,11 @@
 #include <unordered_map>
 #include <stdexcept>
+
+#define lru_cache
+
+#ifndef dbly_link_list
 #include "doubly_linklist.cpp"
+#endif
 
 template <typename T, typename U>
 class LRUCache

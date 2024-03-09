@@ -1,3 +1,5 @@
+#define dbly_link_list
+
 namespace dblylinklist
 {
     template <typename T>

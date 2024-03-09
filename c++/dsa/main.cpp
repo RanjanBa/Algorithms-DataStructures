@@ -1,11 +1,18 @@
 #include <iostream>
 using namespace std;
 
+#ifndef link_list
 #include "linklist.cpp"
-#include "lru_cache.cpp"
-#ifdef test
+#endif
+
+#ifndef dbly_link_list
 #include "doubly_linklist.cpp"
 #endif
+
+#ifndef lru_cache
+#include "lru_cache.cpp"
+#endif
+
 void creatLinkList()
 {
     linklist::LinkList<int> list;
@@ -54,16 +61,16 @@ void createDoublyLinkList()
     list.pushFront(100);
 
     list.printList();
-    // list.printListReverse();
+    list.printListReverse();
 
-    // list.popBack();
-    // list.popFront();
+    list.popBack();
+    list.popFront();
 
-    // list.printList();
-    // list.printListReverse();
+    list.printList();
+    list.printListReverse();
 
-    // list.pushBack(9);
-    // list.pushFront(15);
+    list.pushBack(9);
+    list.pushFront(15);
 
     list.erase(1);
     list.erase(3);

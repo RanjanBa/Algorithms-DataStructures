@@ -1,3 +1,5 @@
+#define link_list
+
 namespace linklist
 {
     template <typename T>
