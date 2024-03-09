@@ -9,6 +9,7 @@
         "vector.h": "c",
         "stdlib.h": "c",
         "iostream": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "ostream": "cpp"
     }
 }
