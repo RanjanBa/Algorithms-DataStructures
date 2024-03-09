@@ -7,6 +7,8 @@
         "quick_sort.h": "c",
         "stdio.h": "c",
         "vector.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "iostream": "cpp",
+        "stdexcept": "cpp"
     }
 }
