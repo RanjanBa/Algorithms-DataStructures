@@ -1,36 +1,45 @@
-#include<bits/stdc++.h>
+#define red_black_tree
 
-class Node
+namespace redblacktree
 {
-private:
-    int key;
-    Node* left, *right;
-public:
-    Node(int key);
-    Node(int key, Node* left, Node* right);
-    ~Node();
-};
+    template <typename T>
+    class Node
+    {
+    public:
+        T key;
+        Node<T> *left, *right;
 
-Node::Node(int key)
-{
-    this->key = key;
-    left = nullptr;
-    right = nullptr;
-}
+        Node(T key) : key(key), left(nullptr), right(nullptr) {}
+        Node(T key, Node *left, Node *right) : key(key), left(left), right(right) {}
+        ~Node() {}
+    };
 
-Node::Node(int key, Node* left, Node* right) {
-    this->key = key;
-    this->left = left;
-    this->right = right;
-}
+    template <typename T>
+    class RedBlackTree
+    {
+    private:
+        Node<T> *root;
 
-Node::~Node()
-{
-}
+    public:
+        RedBlackTree() : root(nullptr) {}
 
+        void insert(T key)
+        {
+            if (root == nullptr)
+            {
+                root = new Node<T>(key);
+            }
+        }
 
-int main(int argc, char const *argv[])
-{
-    
-    return 0;
+        void erase(T key)
+        {
+        }
+
+        bool search(T key)
+        {
+            return false;
+        }
+
+        ~RedBlackTree() {}
+    };
 }

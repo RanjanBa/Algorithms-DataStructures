@@ -9,6 +9,7 @@ namespace dblylinklist
         T value;
         Node<T> *next;
         Node<T> *prev;
+
         Node(T value) : value(value), next(nullptr), prev(nullptr) {}
         ~Node() {}
     };
@@ -27,7 +28,7 @@ namespace dblylinklist
         {
             if (head == nullptr)
             {
-                head = new Node<T>(value);
+                head = new Node(value);
                 tail = head;
                 return;
             }

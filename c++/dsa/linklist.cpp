@@ -8,6 +8,7 @@ namespace linklist
     public:
         T value;
         Node<T> *next;
+
         Node(T value) : value(value), next(nullptr) {}
         ~Node() {}
     };

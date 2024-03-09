@@ -13,6 +13,14 @@ using namespace std;
 #include "lru_cache.cpp"
 #endif
 
+#ifndef red_black_tree
+#include "red_black_tree.cpp"
+#endif
+
+#ifndef avl_tree
+#include "avl_tree.cpp"
+#endif
+
 void creatLinkList()
 {
     linklist::LinkList<int> list;
@@ -103,10 +111,43 @@ void creatLRU()
     cache.showUpdatedListKey();
 }
 
+void createAVLTree()
+{
+    cout << "AVL TREE" << endl;
+    avltree::AVLTree<int> avl;
+
+    cout << "Stage 1" << endl;
+    // avl.insert(1);
+    // avl.insert(2);
+    // avl.preOrder();
+
+    // cout << "Stage 2" << endl;
+    // avl.insert(3);
+    // avl.insert(4);
+    // avl.insert(5);
+    // avl.insert(-1);
+    // avl.insert(-2);
+
+    avl.insert(10);
+    avl.insert(20);
+    avl.insert(30);
+    avl.insert(40);
+    avl.insert(50);
+    avl.insert(25);
+
+    avl.preOrder();
+
+    cout << "InOrder : " << endl;
+    avl.inOrder();
+}
+
 int main()
 {
     // creatLinkList();
     // createDoublyLinkList();
-    creatLRU();
+    // creatLRU();
+
+    createAVLTree();
+
     return 0;
 }
