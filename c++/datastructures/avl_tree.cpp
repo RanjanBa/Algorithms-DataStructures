@@ -67,6 +67,48 @@ namespace avltree
             return left->height - right->height;
         }
 
+        Node<T> *getSuccessor(Node<T> *node)
+        {
+            if (node == nullptr)
+                return node;
+
+            if (node->right == nullptr)
+            {
+                return node;
+            }
+
+            Node<T> *cur = node->right;
+
+            while (cur->left != nullptr)
+            {
+                cur = cur->left;
+            }
+
+            return cur;
+        }
+
+        Node<T> *getPredecessor(Node<T> *node)
+        {
+            if (node == nullptr)
+            {
+                return nullptr;
+            }
+
+            if (node->left == nullptr)
+            {
+                return node;
+            }
+
+            Node<T> *cur = node->left;
+
+            while (cur->right != nullptr)
+            {
+                cur = cur->right;
+            }
+
+            return cur;
+        }
+
         Node<T> *leftRotation(Node<T> *node)
         {
             if (node->right == nullptr)
@@ -101,26 +143,8 @@ namespace avltree
             return left_child;
         }
 
-        Node<T> *insertUtility(Node<T> *node, T key)
+        Node<T> *balanceTree(Node<T> *node)
         {
-            if (node == nullptr)
-            {
-                return new Node<T>(key);
-            }
-
-            if (key < node->key)
-            {
-                node->left = insertUtility(node->left, key);
-            }
-            else if (key > node->key)
-            {
-                node->right = insertUtility(node->right, key);
-            }
-            else
-            {
-                return node;
-            }
-
             node->height = 1 + max(getHeight(node->left), getHeight(node->right));
 
             int factor = getBalanceFactor(node);
@@ -151,6 +175,114 @@ namespace avltree
             }
 
             return node;
+        }
+
+        Node<T> *insertUtility(Node<T> *node, T key)
+        {
+            if (node == nullptr)
+            {
+                return new Node<T>(key);
+            }
+
+            if (key < node->key)
+            {
+                node->left = insertUtility(node->left, key);
+            }
+            else if (key > node->key)
+            {
+                node->right = insertUtility(node->right, key);
+            }
+            else
+            {
+                return node;
+            }
+
+            /*
+            node->height = 1 + max(getHeight(node->left), getHeight(node->right));
+
+            int factor = getBalanceFactor(node);
+
+            if (factor > 1)
+            {
+                if (key < node->left->key)
+                {
+                    return rightRotation(node);
+                }
+                else if (key > node->left->key)
+                {
+                    node->left = leftRotation(node);
+                    return rightRotation(node);
+                }
+            }
+            else if (factor < -1)
+            {
+                if (key > node->right->key)
+                {
+                    return leftRotation(node);
+                }
+                else if (key < node->right->key)
+                {
+                    node->right = rightRotation(node->right);
+                    return leftRotation(node);
+                }
+            }
+
+            return node;
+            */
+
+            return balanceTree(node);
+        }
+
+        Node<T> *eraseUtility(Node<T> *node, T key)
+        {
+            if (node == nullptr)
+                return node;
+
+            if (key < node->key)
+            {
+                node->left = eraseUtility(node->left, key);
+            }
+            else if (key > node->key)
+            {
+                node->right = eraseUtility(node->right, key);
+            }
+            else
+            {
+                if (node->left == nullptr)
+                {
+                    return node->right;
+                }
+                else if (node->right == nullptr)
+                {
+                    return node->left;
+                }
+                else
+                {
+                    Node<T> *tmp = getSuccessor(node);
+                }
+            }
+
+            return balanceTree(node);
+        }
+
+        bool searchUtility(Node<T> *node, const T &key)
+        {
+            if (node == nullptr)
+            {
+                return false;
+            }
+
+            if (key == node->key)
+            {
+                return true;
+            }
+
+            if (key < node->key)
+            {
+                return searchUtility(node->left, key);
+            }
+
+            return searchUtility(node->right, key);
         }
 
         void preOrderUtility(Node<T> *node)

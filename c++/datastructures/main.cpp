@@ -21,6 +21,10 @@ using namespace std;
 #include "avl_tree.cpp"
 #endif
 
+#ifndef dynamic_array
+#include "dynamic_array.cpp"
+#endif
+
 void creatLinkList()
 {
     linklist::LinkList<int> list;
@@ -141,13 +145,62 @@ void createAVLTree()
     avl.inOrder();
 }
 
+void createDynamicArray()
+{
+    dynamicarray::DynamicArray<int> dyarr(5);
+
+    dyarr.pushBack(12);
+    dyarr.pushBack(17);
+    dyarr.pushBack(15);
+    dyarr.pushBack(13);
+
+    dyarr.printArray();
+
+    dyarr.pushBack(26);
+    dyarr.pushBack(35);
+    dyarr.pushBack(47);
+    dyarr.printArray();
+
+    dyarr.pushBack(21);
+    dyarr.pushBack(26);
+    dyarr.pushBack(19);
+    dyarr.pushBack(89);
+    dyarr.pushBack(93);
+    dyarr.printArray();
+
+    dyarr.popBack();
+    dyarr.popBack();
+    dyarr.popBack();
+    dyarr.popBack();
+    dyarr.printArray();
+
+    dyarr.pushFront(55);
+    dyarr.pushFront(68);
+    dyarr.printArray();
+
+    dyarr.pushBack(34);
+    dyarr.printArray();
+    dyarr.popBack();
+    dyarr.popFront();
+    dyarr.popFront();
+    dyarr.printArray();
+
+    dyarr.popFront();
+    dyarr.popFront();
+    dyarr.popFront();
+    dyarr.popFront();
+    dyarr.printArray();
+}
+
 int main()
 {
     // creatLinkList();
     // createDoublyLinkList();
     // creatLRU();
 
-    createAVLTree();
+    // createAVLTree();
+
+    createDynamicArray();
 
     return 0;
 }
