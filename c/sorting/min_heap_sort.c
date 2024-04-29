@@ -90,6 +90,10 @@ void insert(int *arr, int n, int value)
     printf("\n");
 }
 
+void delete(int *arr, int n, int value)
+{
+}
+
 void buildHeap(int *arr, int n)
 {
     // if n is size of the array, there should be n / 2 non-leaf.
