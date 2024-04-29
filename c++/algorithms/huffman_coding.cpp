@@ -26,12 +26,11 @@ public:
 Node<char> *buildHuffmanTree(unordered_map<char, int> &freq)
 {
     priority_queue<pair<int, Node<char> *>, vector<pair<int, Node<char> *>>, greater<pair<int, Node<char> *>>> pq;
-    unordered_map<int, Node<char> *> mp;
 
     for (auto it = freq.begin(); it != freq.end(); it++)
     {
-        mp[it->first] = new Node<char>(it->first, it->second);
-        pq.push({it->second, mp[it->first]});
+        Node<char>* tmp = new Node<char>(it->first, it->second);
+        pq.push({it->second, tmp});
     }
 
     while (pq.size() > 1)
