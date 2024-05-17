@@ -28,7 +28,10 @@ namespace dynamicstack
         }
 
     public:
-        DynamicStack(int capacity = 10) : capacity(capacity), count(0), default_capacity(capacity) {}
+        DynamicStack(int capacity = 10) : capacity(capacity), count(0), default_capacity(capacity)
+        {
+            stack = (T *)malloc(capacity * sizeof(T));
+        }
 
         void push(T value)
         {

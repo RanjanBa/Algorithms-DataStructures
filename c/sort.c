@@ -4,7 +4,7 @@
 // #include "./sorting/bubble_sort.c"
 // #include "./sorting/insertion_sort.c"
 // #include "./sorting/merge_sort.c"
-// #include "./sorting/quick_sort.c"
+#include "./sorting/quick_sort.c"
 // #include "./sorting/selection_sort.c"
 
 int main()
@@ -14,7 +14,7 @@ int main()
 
     int *arr = (int *)malloc(n * sizeof(int));
 
-    int a[] = {64, 25, 12, 22, 11};
+    int a[] = {2, 3, 4, 5, 1, 6, 7, 8};
 
     n = sizeof(a) / sizeof(int);
 

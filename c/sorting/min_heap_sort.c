@@ -90,8 +90,9 @@ void insert(int *arr, int n, int value)
     printf("\n");
 }
 
-void delete(int *arr, int n, int value)
+void peek(int *arr, int n)
 {
+    return arr[0];
 }
 
 void buildHeap(int *arr, int n)
@@ -102,7 +103,7 @@ void buildHeap(int *arr, int n)
         heapifyDown(arr, n, i);
     }
 
-    printf("MaxHeap : ");
+    printf("Min Heap : ");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);
