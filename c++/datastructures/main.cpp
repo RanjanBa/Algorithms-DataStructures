@@ -25,6 +25,10 @@ using namespace std;
 #include "dynamic_array.cpp"
 #endif
 
+#ifndef max_heap
+#include "max_heap.cpp"
+#endif
+
 void creatLinkList()
 {
     linklist::LinkList<int> list;
@@ -200,7 +204,37 @@ int main()
 
     // createAVLTree();
 
-    createDynamicArray();
+    // createDynamicArray();
+
+    maxheap::MaxHeap<int> heap;
+
+    heap.insert(60);
+    heap.insert(50);
+    heap.insert(45);
+    heap.insert(30);
+    heap.insert(40);
+    heap.insert(30);
+
+    heap.print();
+
+    heap.insert(70);
+    heap.print();
+
+    heap.pop();
+    heap.print();
+
+    maxheap::MaxHeap<char> heap2;
+
+    heap2.insert('c');
+    heap2.insert('b');
+
+    heap2.print();
+
+    heap2.insert('a');
+    heap2.print();
+
+    heap2.pop();
+    heap2.print();
 
     return 0;
 }

@@ -143,7 +143,7 @@ namespace avltree
             return left_child;
         }
 
-        Node<T> *balanceTree(Node<T> *node)
+        Node<T> *balanceTree(Node<T> *node, T key)
         {
             node->height = 1 + max(getHeight(node->left), getHeight(node->right));
 
@@ -230,7 +230,7 @@ namespace avltree
             return node;
             */
 
-            return balanceTree(node);
+            return balanceTree(node, key);
         }
 
         Node<T> *eraseUtility(Node<T> *node, T key)
@@ -262,7 +262,7 @@ namespace avltree
                 }
             }
 
-            return balanceTree(node);
+            return balanceTree(node, key);
         }
 
         bool searchUtility(Node<T> *node, const T &key)
