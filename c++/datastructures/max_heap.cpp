@@ -4,7 +4,7 @@
 
 namespace maxheap
 {
-    template<typename T>
+    template <typename T>
     class MaxHeap
     {
     private:
@@ -27,14 +27,6 @@ namespace maxheap
             if (elements[parentIndex] >= elements[index])
                 return;
 
-            // int leftChildIndex = 2 * parentIndex + 1;
-            // int rightChildIndex = 2 * parentIndex + 2;
-            // int smallElementIndex = leftChildIndex;
-            // if (elements[leftChildIndex] > elements[rightChildIndex])
-            // {
-            //     smallElementIndex = rightChildIndex;
-            // }
-
             swap(elements[index], elements[parentIndex]);
             bubbleUp(parentIndex);
         }
@@ -45,19 +37,37 @@ namespace maxheap
                 return;
 
             int leftChildIndex = 2 * index + 1;
-            int rightChildIndex = 2 * index + 2;
+            if (leftChildIndex >= elements.size())
+            {
+                return;
+            }
 
-            int greaterElementIndex = leftChildIndex;
-            if (elements[leftChildIndex] < elements[rightChildIndex])
+            int greaterElementIndex = -1;
+
+            if (elements[index] < elements[leftChildIndex])
+            {
+                greaterElementIndex = leftChildIndex;
+            }
+
+            int rightChildIndex = 2 * index + 2;
+            if (rightChildIndex < elements.size() && elements[leftChildIndex] < elements[rightChildIndex] && elements[index] < elements[rightChildIndex])
             {
                 greaterElementIndex = rightChildIndex;
             }
+
+            if (greaterElementIndex == -1)
+                return;
 
             swap(elements[index], elements[greaterElementIndex]);
             bubbleDown(greaterElementIndex);
         }
 
     public:
+        int size()
+        {
+            return elements.size();
+        }
+
         void insert(T ele)
         {
             if (elements.size() == 0)

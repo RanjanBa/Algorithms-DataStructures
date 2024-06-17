@@ -197,39 +197,6 @@ namespace avltree
                 return node;
             }
 
-            /*
-            node->height = 1 + max(getHeight(node->left), getHeight(node->right));
-
-            int factor = getBalanceFactor(node);
-
-            if (factor > 1)
-            {
-                if (key < node->left->key)
-                {
-                    return rightRotation(node);
-                }
-                else if (key > node->left->key)
-                {
-                    node->left = leftRotation(node);
-                    return rightRotation(node);
-                }
-            }
-            else if (factor < -1)
-            {
-                if (key > node->right->key)
-                {
-                    return leftRotation(node);
-                }
-                else if (key < node->right->key)
-                {
-                    node->right = rightRotation(node->right);
-                    return leftRotation(node);
-                }
-            }
-
-            return node;
-            */
-
             return balanceTree(node, key);
         }
 
@@ -320,7 +287,7 @@ namespace avltree
 
         bool search(T key)
         {
-            return false;
+            return searchUtility(root, key);
         }
 
         void preOrder()
